@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.2.1/css/all.min.css">
+    <link rel="stylesheet" href="styles/style.css">
+    <title>Tudo List</title>
+</head>
+<body>
+
+<section class="section-task-list">
+    <div class="task-list-head">
+        <h1>TO-DO List</h1>
+        <!-- <form action="" class="form-add-task"> -->
+            <input type="text" placeholder="Write your next task..." id="inputAddTask" class="input-add-task">
+
+            <button type="submit" id="btnAddTask" class="button-add-task">
+                <i class="fa-solid fa-plus"></i>
+            </button>
+        <!-- </form> -->
+    </div>
+    <ul id="taskList" class="task-list-body">
+        <li class="card-task">
+            <h4 class="title-task">Fazer uma aplicação de todo list com html, css, js puro</h4>
+            
+            <div class="button-area">
+                <button id="btnEditTask" class="button-edit-task">
+                    <!-- icone de lapis -->
+                    <i class="fa-solid fa-pen"></i>
+                </button>
+                <button id="btnRemoveTask" class="button-remove-task">
+                    <!-- icone de lixeira -->
+                    <i class="fa-solid fa-trash"></i>
+                </button>
+            </div>
+        </li>
+        
+    </ul>
+</section>
+    
+</body>
+</html>
+<script src="js/script.js"></script>

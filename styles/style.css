@@ -1,0 +1,92 @@
+body{
+    margin: 0;
+    background-color: #061C31;
+    font-family: Arial, Helvetica, sans-serif;
+}
+
+form{
+    width: 100%;
+    height: 100%;
+}
+
+.section-task-list{
+    margin-inline: auto;
+    margin-top: 50px;
+    max-width: 500px;
+    padding: 2.5rem;
+    
+    border-radius: 8px;
+    box-sizing: border-box;
+    background-color: white;
+}
+
+.task-list-head h1{
+    text-align: center;
+    margin-bottom: 2rem;
+}
+
+.task-list-head{
+    padding-bottom: 2rem;
+    border-bottom: 1px solid #000;
+}
+
+.input-add-task{
+    width:85%;
+    padding: 0.5rem;
+    border-radius: 8px;
+    border: 1px solid grey;
+    font-size: 1rem;
+
+    outline: none;
+}
+
+.button-add-task{
+    /* padding: 0.5rem 0.7rem; */
+    height: 36px;
+    width: 38px;
+    border-radius: 8px;
+    border: 1px solid grey;
+    outline: none;
+    background-color: #FFF;
+}
+
+.button-add-task:hover , .card-task button:hover{
+    background-color: grey;
+    color: white;
+    cursor: pointer;
+}
+
+/* ----- corpo da lista de tarefa ------ */
+
+.task-list-body{
+    margin-top: 2rem;
+    list-style-type: none;
+    padding: 0;
+}
+
+.card-task{
+    /* background-color: rgb(79, 88, 133); */
+    padding: 1rem;
+    margin-bottom: 1rem;
+    border: 1px solid grey;
+    border-radius: 8px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    flex-wrap:wrap;
+}
+
+.card-task h4{
+    max-width: 30ch;
+}
+
+.card-task button{
+    height: 36px;
+    width: 38px;
+    border-radius: 8px;
+    border: 1px solid grey;
+    outline: none;
+    background-color: #FFF;
+    margin-left: 5px;
+}
+
