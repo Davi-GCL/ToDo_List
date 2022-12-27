@@ -91,3 +91,24 @@ form{
     margin-left: 5px;
 }
 
+
+/* Animacao de excluir uma tarefa */
+
+.card-task{
+    opacity: 1;
+    transition: opacity 1s ease-in;
+    transition-delay: 0.3s;
+}
+
+.card-task.exclude{
+    opacity: 0.05;
+}
+
+.card-task .title-task{
+    text-decoration: none;
+    transition: text-decoration 0.1s ease-in;
+}
+
+.card-task.exclude .title-task{
+    text-decoration: line-through;
+}
