@@ -12,6 +12,7 @@ form{
 .section-task-list{
     margin-inline: auto;
     margin-top: 50px;
+    width: 85%;
     max-width: 500px;
     padding: 2.5rem;
     
