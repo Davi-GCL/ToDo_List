@@ -91,11 +91,12 @@ function edit(task){
     if(window.confirm('Tem certeza que deseja alterar tarefa:  \"' + task.name + '\" ?') == true){
         let li = document.getElementById(''+ task.id + '');
         let h4 = li.childNodes[0];
-    
-        task.name = prompt('Alterar tarefa:  \"' + task.name + '\"');
-        h4.innerHTML = task.name;
-        // console.log(li.children);
-     
+    	let window = prompt('Alterar tarefa:', task.name);
+	if(window){
+        	task.name = window;
+        	h4.innerHTML = new String(task.name);
+        	console.log(li.children);
+     	}
     }
    
 };
@@ -161,4 +162,14 @@ if(dataBase == 0){
     
     setupEx();
 };
-    
+
+function showLogin(status){
+	let windowLogin = document.querySelector('.modal-login');
+	
+	if(status == 'open'){
+		windowLogin.style.display = 'block';
+	}
+	if(status == 'close'){
+		windowLogin.style.display = 'none';
+	}    
+}
