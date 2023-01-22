@@ -1,10 +1,25 @@
-var dataBase = 0; // Idicador se o usuario ja populou o banco de dados anteriormente (coming soon)
 
 const inputTask = document.getElementById('inputAddTask');
 const btnAdd = document.getElementById('btnAddTask');
 const btnEdit = document.getElementById('btnEditTask');
 const btnRmv = document.getElementById('btnRemoveTask');
 const taskList = document.getElementById('taskList');
+const formAddTask = document.querySelector('.form-add-task');
+
+var taskStorage = [];
+
+//Verifica se o localstorage já foi populado antes, se sim, copiara os dados para o array 'taskStorage' para manipular os dados. Mas, se vazio, exibe uma tarefa exemplo
+if(localStorage.hasOwnProperty('TASKS')){
+    taskStorage = JSON.parse(localStorage.getItem('TASKS'));
+    setupTask(taskStorage);
+}else{
+    setupEx();
+}
+
+//Impede de o submit do formulario recarregar a pagina:
+formAddTask.addEventListener('submit', (e) => {
+    e.preventDefault();
+})
 
 inputTask.addEventListener('keypress', (e) => {
     
@@ -15,6 +30,10 @@ inputTask.addEventListener('keypress', (e) => {
                 name: inputTask.value,
                 id: genId(),
             }
+
+            taskStorage.push(task);
+            storeData("TASKS", JSON.stringify(taskStorage));
+
             //Adicionar a tarefa ao html
             addTask(task);
         }
@@ -29,6 +48,10 @@ btnAdd.addEventListener('click', (e) => {
             name: inputTask.value,
             id: genId(),
         }
+
+        taskStorage.push(task);
+        storeData("TASKS", JSON.stringify(taskStorage));
+
         //Adicionar a tarefa ao html
         addTask(task);
     }
@@ -158,10 +181,10 @@ function setupEx(){
     addTask(taskEx);
 };
 // Verifica se e a primeira vez que o usuario entra no site (banco de dados zerado)
-if(dataBase == 0){
+// if(dataBase == 0){
     
-    setupEx();
-};
+//     setupEx();
+// };
 
 function showLogin(status){
 	let windowLogin = document.querySelector('.modal-login');
@@ -173,3 +196,43 @@ function showLogin(status){
 		windowLogin.style.display = 'none';
 	}    
 }
+
+//------------------ Local storage -------------------
+// Armazenando dados em local storage
+function storeData(key, value) {
+    localStorage.setItem(key, value);
+}
+  
+// Recuperando dados armazenados
+function getData(key) {
+    return localStorage.getItem(key);
+}
+  
+// Exemplo de uso
+// storeData("nome", "João");
+// console.log(getData("nome")); // Output: "João"
+  
+// Remover dados armazenados
+function removeData(key) {
+    localStorage.removeItem(key);
+}
+  
+// Armazenando objeto
+
+// storeData("taskData", JSON.stringify(taskStorage));
+
+// Recuperando objeto
+// taskStorage = JSON.parse(getData("taskList"));
+
+function setupTask(list){
+    for(let i = 0; i < list.length; i++){
+        
+        addTask(list[i]);
+        
+    }
+
+}
+
+
+
+  
