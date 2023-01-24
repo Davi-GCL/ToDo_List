@@ -115,10 +115,15 @@ function edit(task){
         let li = document.getElementById(''+ task.id + '');
         let h4 = li.childNodes[0];
     	let window = prompt('Alterar tarefa:', task.name);
-	if(window){
-        	task.name = window;
-        	h4.innerHTML = new String(task.name);
+
+	    if(window){
+        	task.name = new String(window);
+        	h4.innerHTML = task.name;
         	console.log(li.children);
+
+            //Edita o elemento no array (posicao encontrada pesquisando pelo id) e, posteriormente, modifica o localstorage
+            taskStorage[find(taskStorage, "id", task.id)];
+            storeData('TASKS', JSON.stringify(taskStorage));
      	}
     }
    
@@ -146,10 +151,23 @@ async function remove(idTask){
             await timer(1.4); //Aguarda o intervalo para a animacao terminar
             
             taskList.removeChild(li);
+            
+            //Remove a posicao do elemento especificado(splice(index, quantidade a remover)), do array e armazena o array modificado no localstorage
+            taskStorage.splice([find(taskStorage, "id", idTask)], 1);
+            storeData('TASKS', JSON.stringify(taskStorage));
         }
     }
 };
 
+function find(array, key, value){
+
+    for(let i = 0; i < array.length; i++){
+        if(array[i][key] == value){
+            return i;
+        }
+    }
+    return null;
+}
 
 // function remove(idTask){
 //     console.log(idTask);
@@ -177,6 +195,10 @@ function setupEx(){
         name: "Fazer uma aplicação de todo list com html, css, js puro",
         id: 0,
     };
+    //Adiciona a tarefa ao local storage
+    taskStorage.push(taskEx);
+    storeData("TASKS", JSON.stringify(taskStorage));
+
     //Adicionar a tarefa ao html
     addTask(taskEx);
 };
@@ -232,6 +254,8 @@ function setupTask(list){
     }
 
 }
+
+
 
 
 
