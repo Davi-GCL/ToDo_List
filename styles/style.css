@@ -51,7 +51,7 @@ form{
     background-color: #FFF;
 }
 
-.button-add-task:hover , .card-task button:hover{
+.button-add-task:hover , .card-task button:hover , .button-submit-login:hover , #btn-open-login:hover{
     background-color: grey;
     color: white;
     cursor: pointer;
@@ -112,3 +112,100 @@ form{
 .card-task.exclude .title-task{
     text-decoration: line-through;
 }
+
+/* Secao do login */
+.modal-login{
+    position: fixed;
+    z-index: 100;
+    width: 100vw;
+    height: 100vh;
+
+}
+
+.card-modal-login{
+    position: fixed;
+    top: 30%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    width: 50%;
+    max-width: 600px;
+    padding: 2.5rem;
+    
+    border-radius: 8px;
+    box-sizing: border-box;
+    background-color: #f3f3f3;
+    z-index: 100;
+}
+
+.card-modal-login h2{
+    padding-bottom: 1rem;
+    border-bottom: 1px solid #000;
+    margin-bottom: 1.5rem;
+    margin-top: 0;
+}
+
+.form-login {
+    /* margin-inline: 10px; */
+    display: flex;
+    justify-content: space-between;
+    flex-direction: column;
+    align-content: center;
+    align-items: center;
+}
+
+.input-login{
+    width:85%;
+    max-width: 200px;
+    padding: 0.5rem;
+    margin-bottom: 1rem;
+    border-radius: 8px;
+    border: 1px solid grey;
+    font-size: 1rem;
+
+    outline: none;
+}
+
+.button-submit-login{
+    padding: 0.5rem 1rem;
+    border-radius: 8px;
+    border: 1px solid grey;
+    outline: none;
+    background-color: #FFF;
+    
+    font-weight: 600;
+}
+
+.bg-modal-login{
+    width: 100vw;
+    height: 100vh;
+    background-color: black;
+    opacity: 0.2;
+    position: fixed;
+    top: 0;
+    z-index: 99;
+}
+
+#btn-close-login {
+    position: relative;
+    top: 0;
+    left: 100%;
+    transform: translate(0%, -70%);
+    font-size: 1.75rem;
+    cursor: pointer;
+}
+
+#btn-open-login {
+    padding: 0.5rem 0.7rem;
+    font-size: 1rem;
+    background: none;
+    color: #FFF;
+    border-radius: 8px;
+    border: 1px solid grey;
+    position: absolute;
+    top: 0;
+    right: 7%;
+    margin-top: 0.5rem;
+    cursor: pointer;
+}
+
+

@@ -10,16 +10,18 @@
 </head>
 <body>
 
+<button onclick="showLogin('open')" id="btn-open-login"> Login </button>
+
 <section class="section-task-list">
     <div class="task-list-head">
         <h1>TO-DO List</h1>
-        <!-- <form action="none" class="form-add-task"> -->
-            <input type="text" placeholder="Write your next task..." title="Escreva sua nova tarefa" id="inputAddTask" class="input-add-task">
+        <form class="form-add-task">
+            <input type="text" placeholder="Write your next task..." title="Escreva sua nova tarefa" autofocus="true" id="inputAddTask" class="input-add-task">
 
             <button type="submit" title="Adicionar nova tarefa" id="btnAddTask" class="button-add-task">
                 <i class="fa-solid fa-plus"></i>
             </button>
-        <!-- </form> -->
+        </form>
     </div>
     <ul id="taskList" class="task-list-body">
         <!-- <li class="card-task">
@@ -39,7 +41,19 @@
         
     </ul>
 </section>
-    
+
+<section class="modal-login" style="display:none;">
+	<div class="card-modal-login">
+		<span onclick="showLogin('close')"><i id="btn-close-login" class="fa-solid fa-xmark" ></i></span>
+		<h2>Login</h2>
+		<form class="form-login">
+			<input type="text" id="email" class="input-login" placeholder="Email">
+			<input type="password" id="password" class="input-login" placeholder="Password">
+			<button id="btnSubmitLogin" class="button-submit-login"> LOGIN </button>
+		</form>
+	</div>
+	<div class="bg-modal-login"></div>	
+</section>    
 </body>
 </html>
 <script src="js/script.js"></script>
